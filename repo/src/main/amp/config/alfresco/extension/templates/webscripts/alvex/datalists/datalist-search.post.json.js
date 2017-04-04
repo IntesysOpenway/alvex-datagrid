@@ -122,8 +122,8 @@ var Filters =
          limitResults: null,
          sort: [
          {
-            column: "@cm:name",
-            ascending: true
+            column: filter.sortField ? filter.sortField : "cm:name",
+            ascending: !filter.sortDir || filter.sortDir==true ? true : false
          }],
          language: "lucene",
          templates: null
@@ -227,13 +227,14 @@ var Filters =
             break;
 
          case "search":
-            for( var prop in filter.searchFields.props )
-               if( filter.searchFields.props[prop] != "" && filter.searchFields.props[prop][0] == '[' )
-               {
-                  filterParams.query += "+@" + prop.replace("_", "\\:") + ":";
-                  filterParams.query += filter.searchFields.props[prop];
-                  filterParams.query += " ";
-               }
+            for( var prop in filter.searchFields.props ) {
+                if( filter.searchFields.props[prop] && filter.searchFields.props[prop] != "") //  && filter.searchFields.props[prop][0] == '[' 
+                {
+                   filterParams.query += "+@" + prop.replace("_", "\\:") + ":";
+                   filterParams.query += "\"" + filter.searchFields.props[prop] + "\"";
+                   filterParams.query += " ";
+                }
+            }
             break;
 
          //case "search":
@@ -321,20 +322,25 @@ function getData()
    {
       // Use non-query method
       var parentNode = parsedArgs.listNode;
-      if (parentNode != null)
-      {
-         var pagedResult = parentNode.childFileFolders(true, false, Filters.IGNORED_TYPES, -1, -1, REQUEST_MAX, "cm:name", true, null);
-         allNodes = pagedResult.page;
+      if (parentNode != null) {
+    	  var sortField = (filter && filter.sortField) ? filter.sortField : "cm:name";
+    	  var sortDir = (!filter || filter.sortDir == null || filter.sortDir==true) ? true : false;
+
+          // Max returned results specified?
+    	  logger.log("args.max " + args.max);
+          var limitResults = args.max;
+          if (limitResults === null || isNaN(limitResults)) {
+        	  limitResults = -1;
+          }
+          var pagedResult = parentNode.childFileFolders(true, false, Filters.IGNORED_TYPES, -1, limitResults, REQUEST_MAX, sortField, sortDir, null);
+          allNodes = pagedResult.page;
       }
-   }
-   else
-   {
+   } else {
       var filterParams = Filters.getFilterParams(filter, parsedArgs);
       query = filterParams.query;
 
       // Query the nodes - passing in default sort and result limit parameters
-      if (query !== "")
-      {
+      if (query !== "") {
          allNodes = search.query(
          {
             query: query,
@@ -350,24 +356,34 @@ function getData()
       }
    }
 
+   
+   var startIndex = 0;
    if (allNodes.length > 0)
    {
-      // TODO - rework this slow filtering somehow
-      if( filter.filterId === "search" )
-      {
-         allNodes = Filters.searchParams( allNodes, filter );
-         allNodes = Filters.searchAssocs( allNodes, filter );
-      }
+		var pageSize = json.has("pageSize") ? json.get("pageSize") : allNodes.length;
+		var pagePos = json.has("page") ? json.get("page") : "1";
+		
+		startIndex = (pagePos - 1) * pageSize;
+		if (startIndex > allNodes.length) {
+			pagePos = Math.ceil(allNodes.length / pageSize);
+			startIndex = (pagePos - 1) * pageSize;
+		}
+		
+		var nodes = allNodes.slice(startIndex, pagePos * pageSize);
+		 
+		// TODO - rework this slow filtering somehow
+		if( filter.filterId === "search" ) {
+			nodes = Filters.searchParams( nodes, filter );
+			nodes = Filters.searchAssocs( nodes, filter );
+		}
+		
+		for each (node in nodes) {
+			try {
+				items.push(Evaluator.run(node, fields));
+			} catch(e) {}
+		}
+	}
 
-      for each (node in allNodes)
-      {
-         try
-         {
-             items.push(Evaluator.run(node, fields));
-         }
-         catch(e) {}
-      }
-   }
 
    return (
    {
@@ -375,8 +391,8 @@ function getData()
       query: query,
       paging:
       {
-         totalRecords: items.length,
-         startIndex: 0
+         totalRecords: allNodes.length,
+         startIndex: startIndex
       },
       parent:
       {

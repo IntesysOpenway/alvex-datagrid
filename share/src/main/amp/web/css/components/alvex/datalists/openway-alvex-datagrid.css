@@ -31,7 +31,53 @@
    display: none;
 }
 
+.datagrid .datagrid-bar .toolbar
+{
+   margin: 1em;
+}
+
+.datagrid .datagrid-header-bar {
+	float: left; width: 100%;	
+}
+
+.datagrid .datagrid-header-bar .left
+{
+   float: left;
+}
+
+.datagrid .datagrid-header-bar .right
+{
+   float: right;
+}
+
+.datagrid .datagrid-header-bar .right div,
+.datagrid .datagrid-header-bar .left div
+{
+   float: left;
+}
+
 /* DataGrid bar Buttons and Paginator */
+
+.datagrid .sort-direction span.yui-button
+{
+   margin-right: 0;
+}
+
+.datagrid .sort-direction span.first-child
+{
+   background-image: url("/share/res/components/documentlibrary/images/sort-ascending-16.png");
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   min-height: 16px;
+}
+
+.datagrid .sort-direction .sort-descending span.first-child
+{
+   background-image: url("/share/res/components/documentlibrary/images/sort-descending-16.png");
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   min-height: 16px;
+}
 
 .datagrid .datagrid-bar .item-select
 {
@@ -404,14 +450,6 @@ span.datagrid-clear-search-button
 
 /* Datagrid config */
 /* TODO: move it out of datagrid */
-
-.datagrid .datagrid-actions
-{
-   margin-left: 1em;
-   width: 30%;
-   float: right;
-   text-align: right;
-}
 
 .datagrid .datagrid-actions .configure-page span.first-child
 {

@@ -24,6 +24,7 @@
          "name": "${col.name}",
          "formsName": "<#if col.type == "association">assoc<#else>prop</#if>_${col.name?replace(":", "_")}",
          "label": "${col.label!""}",
+         "sortable": <#if col.sortable?? && col.sortable>true<#else>false</#if>,
       <#if col.dataType??>
          "dataType": "${col.dataType}"
       <#else>

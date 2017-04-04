@@ -1,31 +1,67 @@
 <#macro renderAlvexDatagridHTML id hideMeta=false hideConfig=false hidePanel=false hideSelect=false hidePaginator=false>
 
 <!-- Data Grid -->
-<#include "/org/alfresco/components/form/form.css.ftl" />
-<#include "/org/alfresco/components/form/form.js.ftl" />
-<@script type="text/javascript" src="${url.context}/res/yui/calendar/calendar.js" />
-<@link rel="stylesheet" type="text/css" href="${url.context}/res/css/components/alvex/datalists/datagrid.css" />
-<@script type="text/javascript" src="${url.context}/res/modules/data-lists/datalist-actions.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/alvex.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-renderers.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-search.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-search-renderers.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-actions.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/simple-dialog.js" />
-<@script type="text/javascript" src="${url.context}/res/js/components/alvex/interval-calendar.js" />
-<@script type="text/javascript" src="${url.context}/res/js/alfresco-dnd.js" />
+
+<@markup id="css">
+	<#include "/org/alfresco/components/form/form.css.ftl" />
+	<@link rel="stylesheet" type="text/css" href="${url.context}/res/css/components/alvex/datalists/openway-alvex-datagrid.css" />
+</@>
+
+<@markup id="js">
+	<#include "/org/alfresco/components/form/form.js.ftl" />
+	<@script type="text/javascript" src="${url.context}/res/yui/calendar/calendar.js" />
+	<@script type="text/javascript" src="${url.context}/res/modules/data-lists/datalist-actions.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/alvex.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-renderers.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-search.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-search-renderers.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/datalists/datagrid-actions.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/simple-dialog.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/components/alvex/interval-calendar.js" />
+	<@script type="text/javascript" src="${url.context}/res/js/alfresco-dnd.js" />
+</@>
+
 
 <div id="${id}-body" class="datagrid">
-   <div class="datagrid-meta" <#if hideMeta>style="display:none"</#if>>
-      <h2 id="${id}-title"></h2>
-      <div id="${id}-listType" class="datagrid-description"></div>
-      <div id="${id}-description" class="datagrid-description"></div>
-   </div>
-   <div class="datagrid-actions" <#if hideConfig>style="display:none"</#if>>
-      <span class="configure-page"><button id="${id}-configurePage-button" name="configurePage">${msg("button.configurePage")}</button></span>
-   </div>
-   <div id="${id}-datagridBar" class="yui-ge datagrid-bar flat-button" <#if hidePanel>style="display:none"</#if>>
+	<div class="datagrid-header-bar">
+		<@markup id="toolbarLeft">
+			<div class="left">
+				<div class="datagrid-meta" <#if hideMeta>style="display:none"</#if>>
+			      <h2 id="${id}-title"></h2>
+			      <div id="${id}-listType" class="datagrid-description"></div>
+			      <div id="${id}-description" class="datagrid-description"></div>
+				</div>
+			</div>
+		</@>
+		<@markup id="toolbarRight">
+			<div class="right">
+				<@markup id="datagridSortSelect">
+					<div class="sort-direction">
+						<span id="${id}-sortAscending-button" class="yui-button yui-push-button">
+							<span class="first-child">
+								<button name="doclist-sortAscending-button"></button>
+							</span>
+						</span>
+					</div>
+					<div class="sort-field">
+						<span id="${id}-sortField-button" class="yui-button yui-push-button yui-menu-button">
+							<span class="first-child">
+				            	<button name="datagrid-sortField-button"></button>
+							</span>
+						</span>
+						<span class="separator">&nbsp;</span>
+						<select id="${id}-sortField-menu">
+						</select>
+					</div>
+				</@>
+				<div class="datagrid-actions" <#if hideConfig>style="display:none"</#if>>
+					<span class="configure-page"><button id="${id}-configurePage-button" name="configurePage">${msg("button.configurePage")}</button></span>
+				</div>
+			</div>
+		</@>
+	</div>
+	<div id="${id}-datagridBar" class="yui-ge datagrid-bar flat-button" <#if hidePanel>style="display:none"</#if>>
       <div class="yui-u first align-center">
          <div class="item-select" <#if hideSelect>style="display:none"</#if>>
             <button id="${id}-itemSelect-button" name="datagrid-itemSelect-button">${msg("menu.select")}</button>

@@ -43,6 +43,18 @@ function main()
    }
 
    model.actionSet = actionSet;
+   
+   // Widget instantiation metadata...
+   var dataGrid = {
+		   id : "DataGrid",
+		   name : "Alvex.DataGrid",
+		   options : {
+				workflowsAvailable: model.workflowsAvailable ? true : false,
+				usePagination: args.pagination ? true : false
+	      }
+   };
+   model.widgets = [dataGrid];
+   
 }
 
 main();

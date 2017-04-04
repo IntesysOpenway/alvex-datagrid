@@ -253,6 +253,7 @@ function main()
                   item.isSortKey = (attrs["isSortKey"] !== null ? true : false);
                   item.sortOrder = attrs["sortOrder"];
                   item.isItemName = (attrs["isSortKey"] !== null ? true : false);
+                  item.sortable = (attrs["sortable"] !== null && attrs["sortable"]=="true" ? true : false);
                }
                item.renderer = (templ ? templ : "");
             } 

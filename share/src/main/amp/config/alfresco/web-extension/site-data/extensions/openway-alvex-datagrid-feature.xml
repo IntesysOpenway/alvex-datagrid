@@ -1,0 +1,14 @@
+<extension>
+	<modules>
+		<module>
+			<id>openway-alvex-datagrid-feature</id>
+			<auto-deploy>true</auto-deploy>
+			<customizations>
+				<customization>
+					<targetPackageRoot>org.alfresco</targetPackageRoot>
+					<sourcePackageRoot>alvex.datalists</sourcePackageRoot>
+				</customization>
+			</customizations>
+		</module>
+	</modules>
+</extension>

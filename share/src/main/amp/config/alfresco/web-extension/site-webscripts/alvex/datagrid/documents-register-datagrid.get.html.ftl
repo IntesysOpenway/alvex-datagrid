@@ -7,10 +7,8 @@
 <#include "./alvex-datagrid.inc.ftl">
 <@renderAlvexDatagridHTML id />
 
-<script type="text/javascript">//<![CDATA[
-   new Alvex.DataGrid('${id}').setOptions(
-   {
-      workflowsAvailable: "${(workflowsAvailable!false)?string}",
-      usePagination: ${(args.pagination!false)?string}
-   }).setMessages(${messages});
-//]]></script>
+
+<@markup id="widgets">
+   <@createWidgets group="datalists"/>
+</@>
+
