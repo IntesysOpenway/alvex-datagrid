@@ -1,7 +1,2 @@
-*/alf_data_dev/
-*/target/
-*/pom.xml.tag
-*/pom.xml.releaseBackup
-*/pom.xml.next
-*/release.properties
-.idea
+/.project
+/.settings
