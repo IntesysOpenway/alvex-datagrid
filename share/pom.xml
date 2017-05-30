@@ -189,7 +189,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.alvexcore.share</groupId>
+			<groupId>com.alvexcore.repo</groupId>
 			<artifactId>utils</artifactId>
 			<version>1.19</version>
 			<classifier>iopenway</classifier>
