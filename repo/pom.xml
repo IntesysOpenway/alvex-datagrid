@@ -13,6 +13,8 @@
 	<packaging>amp</packaging>
 	
 	<build>
+		<plugins>
+		</plugins>
 		<!-- Overrinding Resources of parent pom -->
 		<resources>
 			<resource>
