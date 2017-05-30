@@ -195,8 +195,13 @@
 		<dependency>
 			<groupId>com.alvexcore.repo</groupId>
 			<artifactId>utils</artifactId>
+<<<<<<< HEAD
 			<version>1.19</version>
 			<classifier>iopenway</classifier>
+=======
+			<version>1.19-SNAPSHOT</version>
+			<classifier>installable</classifier>
+>>>>>>> branch 'master' of git@github.com:IntesysOpenway/alvex-datagrid.git
 		</dependency>
 	</dependencies>
 </project>
