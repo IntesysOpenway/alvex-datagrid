@@ -80,7 +80,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.alvexcore.repo</groupId>
+			<groupId>com.alvexcore.share</groupId>
 			<artifactId>utils</artifactId>
 			<version>1.19</version>
 			<classifier>iopenway</classifier>
