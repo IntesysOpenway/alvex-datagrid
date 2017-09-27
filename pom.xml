@@ -10,7 +10,7 @@
 
     	<groupId>com.alvexcore</groupId>
     	<artifactId>datagrid</artifactId>
-    	<version>1.1-iopenway</version>
+    	<version>1.2-iopenway-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Alvex datagrid component</name>
@@ -18,7 +18,7 @@
 	<scm>
 		<!-- URL to GIT folder that contains this pom -->
 		<developerConnection>scm:git:git@github.com:IntesysOpenway/alvex-datagrid.git</developerConnection>
-	  <tag>datagrid-1.1-iopenway</tag>
+	  <tag>HEAD</tag>
   </scm>
 	
 	<build>
