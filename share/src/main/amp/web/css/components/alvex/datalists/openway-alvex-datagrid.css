@@ -65,7 +65,7 @@
 
 .datagrid .sort-direction span.first-child
 {
-   background-image: url("/share/res/components/documentlibrary/images/sort-ascending-16.png");
+   background-image: url("../../../../components/documentlibrary/images/sort-ascending-16.png");
    background-position: 50% 50%;
    background-repeat: no-repeat;
    min-height: 16px;
@@ -73,7 +73,7 @@
 
 .datagrid .sort-direction .sort-descending span.first-child
 {
-   background-image: url("/share/res/components/documentlibrary/images/sort-descending-16.png");
+   background-image: url("../../../../components/documentlibrary/images/sort-descending-16.png");
    background-position: 50% 50%;
    background-repeat: no-repeat;
    min-height: 16px;
@@ -114,17 +114,17 @@
 
 .datagrid .item-select .selectAll
 {
-   background-image: url(/share/res/components/images/select-rows-all-16.png);
+   background-image: url(../../../../components/images/select-rows-all-16.png);
 }
 
 .datagrid .item-select .selectNone
 {
-   background-image: url(/share/res/components/images/select-rows-none-16.png);
+   background-image: url(../../../../components/images/select-rows-none-16.png);
 }
 
 .datagrid .item-select .selectInvert
 {
-   background-image: url(/share/res/components/images/select-invert-16.png);
+   background-image: url(../../../../components/images/select-invert-16.png);
 }
 
 /* Data Table */
@@ -204,19 +204,19 @@
 
 .datagrid span.person
 {
-   background: url(/share/res/components/images/filetypes/generic-user-16.png) no-repeat;
+   background: url(../../../../components/images/filetypes/generic-user-16.png) no-repeat;
    padding-left: 20px;
 }
 
 .datagrid span.container
 {
-   background: url(/share/res/components/images/filetypes/generic-folder-16.png) no-repeat;
+   background: url(../../../../components/images/filetypes/generic-folder-16.png) no-repeat;
    padding-left: 20px;
 }
 
 .datagrid span.document
 {
-   background: url(/share/res/components/images/filetypes/generic-file-16.png) no-repeat;
+   background: url(../../../../components/images/filetypes/generic-file-16.png) no-repeat;
    padding-left: 20px;
 }
 
@@ -318,42 +318,42 @@
 
 .datagrid .action-set a
 {
-   background-image: url(/share/res/components/images/generic-file-16.png);
+   background-image: url(../../../../components/images/generic-file-16.png);
 }
 
 .datagrid .onActionShowMore a
 {
-   background-image: url(/share/res/components/images/plus-16.png);
+   background-image: url(../../../../components/images/plus-16.png);
 }
 
 .datagrid .onActionView a
 {
-   background-image: url(/share/res/components/images/list-16.png);
+   background-image: url(../../../../components/images/list-16.png);
 }
 
 .datagrid .onActionStartWorkflow a
 {
-   background-image: url(/share/res/components/images/workflow-16.png);
+   background-image: url(../../../../components/images/workflow-16.png);
 }
 
 .datagrid .onActionEdit a
 {
-   background-image: url(/share/res/components/images/edit-16.png);
+   background-image: url(../../../../components/images/edit-16.png);
 }
 
 .datagrid .onActionDuplicate a
 {
-   background-image: url(/share/res/components/images/duplicate-row-16.png);
+   background-image: url(../../../../components/images/duplicate-row-16.png);
 }
 
 .datagrid .onActionDelete a
 {
-   background-image: url(/share/res/components/images/delete-row-16.png);
+   background-image: url(../../../../components/images/delete-row-16.png);
 }
 
 .datagrid .onActionAttach a
 {
-   background-image: url(/share/res/components/images/add-icon-16.png);
+   background-image: url(../../../../components/images/add-icon-16.png);
 }
 
 /* Forms */
@@ -390,7 +390,7 @@
 
 .form-container .edit-dataitem a
 {
-   background: transparent url(/share/res/components/images/edit-metadata-16.png) no-repeat 12px 4px;
+   background: transparent url(../../../../components/images/edit-metadata-16.png) no-repeat 12px 4px;
    padding-left: 32px;
 }
 
@@ -406,7 +406,7 @@ span.datagrid-search-field
 }
 
 .yui-skin-default .search-cal-button .yui-menu-button button {
-	background: url(/share/res/components/form/images/calendar.png) center center no-repeat; 
+	background: url(../../../../components/form/images/calendar.png) center center no-repeat; 
 	text-indent: -4em; 
 	overflow: hidden; 
 	padding: 0 .75em; 
@@ -420,7 +420,7 @@ span.search-cal-button
 	width:16px; 
 	top:0; 
 	left: 3px; 
-	background-image: url(/share/res/components/form/images/calendar.png); 
+	background-image: url(../../../../components/form/images/calendar.png); 
 }
 
 span.datagrid-search-button
@@ -430,7 +430,7 @@ span.datagrid-search-button
 	width:16px; 
 	top:0; 
 	left: 3px; 
-	background-image: url(/share/res/components/images/search-16.png); 
+	background-image: url(../../../../components/images/search-16.png); 
 }
 
 span.datagrid-clear-search-button
@@ -440,7 +440,7 @@ span.datagrid-clear-search-button
 	width:16px; 
 	top:0; 
 	left: 3px; 
-	background-image: url(/share/res/components/images/delete-16.png); 
+	background-image: url(../../../../components/images/delete-16.png); 
 }
 
 .small-btn .yui-button button
@@ -453,7 +453,7 @@ span.datagrid-clear-search-button
 
 .datagrid .datagrid-actions .configure-page span.first-child
 {
-   background: url("/share/res/components/images/edit-16.png") no-repeat scroll 12px 4px transparent;
+   background: url("../../../../components/images/edit-16.png") no-repeat scroll 12px 4px transparent;
    padding-left: 22px;
 }
 
@@ -465,7 +465,7 @@ div.column-config-dialog-body
 div.used
 {
 	padding-bottom: 20px;
-	padding-top: 20px;
+	padding-top: 20px; 
 	padding-left: 20px;
 	width: 350px;
 	float: left;
