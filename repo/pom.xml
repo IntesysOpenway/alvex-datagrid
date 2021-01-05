@@ -81,6 +81,17 @@
 			</build>
 		</profile>
 	</profiles>
+	
+	<dependencyManagement>
+		<dependencies>
+			<!-- 20210105 Luca: Maven try to find the version 19.0.20150826 that is not available in Nexus. Overriding guava version used by com.alvexcore.repo:utils -> org.mapdb:mapdb -->
+			<dependency>
+	            <groupId>com.google.guava</groupId>
+	            <artifactId>guava</artifactId>
+	            <version>19.0</version>
+	        </dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
