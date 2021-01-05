@@ -19,7 +19,18 @@
 		<!-- URL to GIT folder that contains this pom -->
 		<developerConnection>scm:git:git@github.com:IntesysOpenway/alvex-datagrid.git</developerConnection>
 	  <tag>HEAD</tag>
-  </scm>
+    </scm>
+    
+    <distributionManagement>
+		<snapshotRepository>
+			<id>iopenway</id>
+     		<url>https://maven.iopenway.it/repository/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>iopenway</id>
+      		<url>https://maven.iopenway.it/repository/releases/</url>
+		</repository>
+	</distributionManagement>
 	
 	<build>
 		<pluginManagement>
