@@ -41,11 +41,15 @@ Alvex.DatagridSelectSearchRenderer = function (searchFieldHtmlId, key, curValue,
 	html += '<option></option>';
 	for( var o in availableOptions )
 	{
-		var option = availableOptions[o];
+		// 20210105 Luca: Alfresco sembra inviare le constraint come coppia di valori separati da pipe.
+		// Non è chiaro quale debba essere il value e quale la label. Nel mio caso ricevo ogni volta una
+		// coppia di valori uguali per cui mi limito a prendere il primo.
+		var option = availableOptions[o].split("|")[0];
+		
 		html += '<option ';
-		if( option.value === curValue )
+		if( option === curValue )
 			html += "selected";
-		html += ' value="' + option.value + '">' + option.label + '</option>';
+		html += ' value="' + option + '">' + option + '</option>';
 	}
 	html += '</select></span>';
 	YAHOO.util.Dom.get(searchFieldHtmlId + "-c").innerHTML =  html;
